@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meadowfall RPG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="gameShell">
+    <canvas id="gameCanvas" width="960" height="540" aria-label="Meadowfall RPG game canvas"></canvas>
+
+    <section id="mainMenu" class="panel overlay show">
+      <h1>Meadowfall</h1>
+      <p>A tiny offline RPG foundation built with vanilla HTML, CSS, and JavaScript.</p>
+      <button id="newGameButton">New Game</button>
+      <button id="continueButton">Continue Game</button>
+      <p class="hint">Move with WASD / arrows, attack with Space, interact with E.</p>
+    </section>
+
+    <section id="pauseMenu" class="panel overlay hidden">
+      <h2>Paused</h2>
+      <button id="resumeButton">Resume</button>
+      <button id="saveButton">Save Now</button>
+      <button id="returnMenuButton">Return to Main Menu</button>
+    </section>
+
+    <section id="inventoryPanel" class="panel side-panel hidden" aria-live="polite">
+      <div class="panel-header">
+        <h2>Inventory</h2>
+        <button id="closeInventoryButton" aria-label="Close inventory">×</button>
+      </div>
+      <div id="weaponSlot" class="slot"></div>
+      <div id="inventoryItems" class="items"></div>
+    </section>
+
+    <section id="dialogueBox" class="dialogue hidden"></section>
+
+    <div id="hud" class="hud hidden">
+      <div class="bar-wrap"><span>HP</span><div class="bar"><div id="hpFill"></div></div><strong id="hpText"></strong></div>
+      <div class="bar-wrap"><span>EXP</span><div class="bar exp"><div id="expFill"></div></div><strong id="expText"></strong></div>
+      <div class="coins">🪙 <span id="coinText">0</span></div>
+      <div class="controls">I Inventory · Esc Pause · E Talk · Space Attack</div>
+    </div>
+
+    <div id="touchControls" class="touch-controls hidden">
+      <div class="dpad">
+        <button data-dir="up">▲</button>
+        <button data-dir="left">◀</button>
+        <button data-dir="down">▼</button>
+        <button data-dir="right">▶</button>
+      </div>
+      <div class="actions">
+        <button data-action="interact">Talk</button>
+        <button data-action="attack">Hit</button>
+        <button data-action="inventory">Bag</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/entities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
