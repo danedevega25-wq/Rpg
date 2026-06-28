@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Forge RPG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="mainMenu" class="screen menu-screen">
+      <div class="hero-card">
+        <p class="eyebrow">Offline Strategy Auto-Battler</p>
+        <h1>Character Forge RPG</h1>
+        <p>Build a five-unit squad from races, classes, traits, passives, rolled skills, cooldowns, and loot. Strategy happens before combat; battles resolve automatically.</p>
+        <div class="menu-actions">
+          <button id="newGameButton">New Forge</button>
+          <button id="continueButton">Continue Forge</button>
+        </div>
+        <p class="hint">Everything is local, offline, and auto-saved in this browser.</p>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Character Forge RPG</p>
+          <h2>Forge Hall</h2>
+        </div>
+        <div class="wallet"><span>🪙 <strong id="coinText">0</strong></span><span>💎 <strong id="diamondText">0</strong></span></div>
+        <button id="saveButton">Save</button>
+        <button id="menuButton">Menu</button>
+      </header>
+      <section class="layout">
+        <aside class="panel roster-panel">
+          <div class="panel-heading"><h3>Your Units</h3><button id="summonButton">Summon 50💎</button></div>
+          <p class="rates" id="summonRates"></p>
+          <div id="unitList" class="unit-list"></div>
+        </aside>
+        <section class="panel detail-panel">
+          <div id="unitDetail"></div>
+          <div class="forge-actions">
+            <button id="rerollTraitButton">Reroll Trait 35🪙</button>
+            <button id="rerollPassiveButton">Reroll Passive 45🪙</button>
+            <button id="rerollSkillButton">Reroll Skill 40🪙</button>
+            <button id="upgradeGearButton">Upgrade Gear 60🪙</button>
+          </div>
+        </section>
+        <aside class="panel battle-panel">
+          <div class="panel-heading"><h3>Battle Prep</h3><button id="startBattleButton">⚔️ Start Battle</button></div>
+          <label for="areaSelect">Dungeon Area</label>
+          <select id="areaSelect"></select>
+          <h4>Formation</h4>
+          <div id="formationSlots" class="formation"></div>
+          <h4>Synergies</h4>
+          <div id="synergyList" class="synergy-list"></div>
+        </aside>
+      </section>
+      <section class="panel codex-panel">
+        <div class="panel-heading"><h3>Indexes</h3><span>Discovered entries reveal rates and effects.</span></div>
+        <div id="indexGrid" class="index-grid"></div>
+      </section>
+      <section id="battleModal" class="battle-modal hidden" aria-live="polite">
+        <div class="panel battle-card">
+          <div class="panel-heading"><h3 id="battleTitle">Battle</h3><button id="closeBattleButton">Close</button></div>
+          <div id="battleTeams" class="battle-teams"></div>
+          <div id="battleLog" class="battle-log"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/entities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
